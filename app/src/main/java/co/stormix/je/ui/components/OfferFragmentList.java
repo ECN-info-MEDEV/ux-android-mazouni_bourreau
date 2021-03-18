@@ -73,4 +73,6 @@ public class OfferFragmentList extends Fragment {
         }
         return view;
     }
+
+
 }

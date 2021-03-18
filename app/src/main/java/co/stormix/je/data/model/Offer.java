@@ -14,9 +14,10 @@ public class Offer {
    private String logo;
    private Date createdAt;
    private Date expiresAt;
-
+    private String id;
     // Client, Company, createdAt, expiresAt, description, logo
-    public Offer(User client, Company company, String description, String logo, Date createdAt, Date expiresAt) {
+    public Offer(String id, User client, Company company, String description, String logo, Date createdAt, Date expiresAt) {
+      this.id = id;
       this.client = client;
       this.company = company;
       this.description = description;
@@ -82,7 +83,7 @@ public class Offer {
     }
 
     public static Offer createFakeOffer(String id){
-        Offer offer = new Offer(User.createFakeUser(id), Company.createFakeCompany(id), "Haha description go brrr", "https://cdn2.iconfinder.com/data/icons/apple-tv-1/512/apple_logo-512.png", new Date(), new Date());
+        Offer offer = new Offer(id, User.createFakeUser(id), Company.createFakeCompany(id), "Haha description go brrr", "https://cdn2.iconfinder.com/data/icons/apple-tv-1/512/apple_logo-512.png", new Date(), new Date());
         return offer;
     }
 
@@ -94,5 +95,9 @@ public class Offer {
         }
 
         return offers;
+    }
+
+    public String getId() {
+    return  id;
     }
 }

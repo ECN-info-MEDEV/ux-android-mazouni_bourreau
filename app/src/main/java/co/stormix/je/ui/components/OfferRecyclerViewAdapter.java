@@ -1,7 +1,11 @@
 package co.stormix.je.ui.components;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +13,8 @@ import android.widget.TextView;
 
 import co.stormix.je.R;
 import co.stormix.je.data.model.Offer;
+import co.stormix.je.ui.main.DetailsActivity;
+import co.stormix.je.ui.main.MainActivity;
 
 import java.util.List;
 
@@ -24,6 +30,7 @@ public class OfferRecyclerViewAdapter extends RecyclerView.Adapter<OfferRecycler
         mValues = items;
     }
 
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
@@ -32,15 +39,28 @@ public class OfferRecyclerViewAdapter extends RecyclerView.Adapter<OfferRecycler
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
+        final Offer currentOffer = mValues.get(position);
+        holder.mView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Log.d("FragmentItem", "Navigate to Offer details" + currentOffer.getId());
+                Context context = v.getContext();
+                Intent intent = new Intent(context, DetailsActivity.class);
+                intent.putExtra("OfferId", currentOffer.getId());
+                context.startActivity(intent);
+            }
+        });
         holder.mItem = mValues.get(position);
-        holder.mClientName.setText(mValues.get(position).getClient().getDisplayName());
-        holder.mCompanyName.setText(mValues.get(position).getCompany().getDisplayName());
-        holder.mCompanySite.setText(mValues.get(position).getCompany().getSite());
-        holder.mCompanyType.setText(mValues.get(position).getCompany().getCompanyType());
-        holder.mDuration.setText(mValues.get(position).getDuration());
-        holder.mCreatedAt.setText(mValues.get(position).getHumanCreatedAt());
-        holder.mDescription.setText(mValues.get(position).getDescription());
+        holder.mClientName.setText(currentOffer.getClient().getDisplayName());
+        holder.mCompanyName.setText(currentOffer.getCompany().getDisplayName());
+        holder.mCompanySite.setText(currentOffer.getCompany().getSite());
+        holder.mCompanyType.setText(currentOffer.getCompany().getCompanyType());
+        holder.mDuration.setText(currentOffer.getDuration());
+        holder.mCreatedAt.setText(currentOffer.getHumanCreatedAt());
+        holder.mDescription.setText(currentOffer.getDescription());
     }
 
     @Override

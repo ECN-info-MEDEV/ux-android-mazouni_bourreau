@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 if (loginResult.getSuccess() != null) {
                     // updateUiWithUser(loginResult.getSuccess());
-                    Log.d("LoginActivity", "Wallah success!");
+                    Log.d("LoginActivity", "Logged in successfully!");
                     // Redirect to main activity
                     Intent homepage = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(homepage);
