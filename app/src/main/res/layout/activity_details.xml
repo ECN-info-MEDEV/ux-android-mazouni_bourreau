@@ -15,10 +15,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-
-
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/Header"
             android:layout_width="match_parent"
@@ -73,7 +69,8 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_download_black_24dp"
                 tools:layout_conversion_absoluteHeight="32dp"
-                tools:layout_conversion_absoluteWidth="32dp" />
+                tools:layout_conversion_absoluteWidth="32dp"
+                android:onClick="notImplemented"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -88,6 +85,28 @@
                 android:layout_marginLeft="@dimen/layout_mx"
                 android:layout_marginRight="@dimen/layout_mx"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/client"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/client"
+                        android:textColor="@color/material_on_background_emphasis_high_type"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/clientName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Client Name" />
+                </LinearLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -152,28 +171,6 @@
                         tools:srcCompat="@tools:sample/avatars" />
 
                 </RelativeLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="16dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/client"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/client"
-                        android:textColor="@color/material_on_background_emphasis_high_type"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/clientName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Client Name" />
-                </LinearLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -254,6 +251,51 @@
                         android:layout_height="wrap_content"
                         android:text="Project description" />
                 </LinearLayout>
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="Assign Offer"
+                    android:onClick="notImplemented"
+                    app:backgroundTint="#000000" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/relativeLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="175dp"
+                        android:layout_height="wrap_content"
+                        android:text="Contact Client"
+                        android:textColor="#000000"
+                        app:backgroundTint="#e5e5e5"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:onClick="contact"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="175dp"
+                        android:layout_height="wrap_content"
+                        android:text="Archive"
+                        android:textColor="#000"
+                        app:backgroundTint="#FFF"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:onClick="notImplemented"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </LinearLayout>
         </ScrollView>
 

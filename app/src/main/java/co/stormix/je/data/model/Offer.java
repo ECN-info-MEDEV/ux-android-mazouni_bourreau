@@ -1,12 +1,20 @@
 package co.stormix.je.data.model;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.thedeanda.lorem.Lorem;
 import com.thedeanda.lorem.LoremIpsum;
 
 import org.ocpsoft.prettytime.PrettyTime;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class Offer {
   private User client;
@@ -28,16 +36,20 @@ public class Offer {
     this.expiresAt = expiresAt;
   }
 
+  @RequiresApi(api = Build.VERSION_CODES.O)
   public static Offer createFakeOffer(String id) {
     Lorem lorem = LoremIpsum.getInstance();
+    long aDay = TimeUnit.DAYS.toMillis(1);
+    long now = new Date().getTime();
+    int days =  new Random().nextInt(10);
     return new Offer(
         id,
         User.createFakeUser(id),
         Company.createFakeCompany(id),
         lorem.getParagraphs(2, 4),
         "https://cdn2.iconfinder.com/data/icons/apple-tv-1/512/apple_logo-512.png",
-        new Date(),
-        new Date()
+        new Date(now - aDay * days),
+        new Date(now + aDay * days * 2)
     );
   }
 

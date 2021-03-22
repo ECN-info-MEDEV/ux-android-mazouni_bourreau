@@ -10,21 +10,21 @@
     <item
         android:id="@+id/page_2"
         android:enabled="true"
-        android:icon="@drawable/ic_circle_black_24dp"
+        android:icon="@drawable/ic_dot"
         android:title="@string/home"
         android:contentDescription="@string/todo"
         />
     <item
         android:id="@+id/page_3"
         android:enabled="true"
-        android:icon="@drawable/ic_circle_black_24dp"
+        android:icon="@drawable/ic_dot"
         android:title="@string/home"
         android:contentDescription="@string/todo"
         />
     <item
         android:id="@+id/page_4"
         android:enabled="true"
-        android:icon="@drawable/ic_circle_black_24dp"
+        android:icon="@drawable/ic_dot"
         android:title="@string/home"
         android:contentDescription="@string/todo"
         />

@@ -42,7 +42,8 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_add"
                 tools:layout_conversion_absoluteHeight="24dp"
-                tools:layout_conversion_absoluteWidth="24dp" />
+                tools:layout_conversion_absoluteWidth="24dp"
+                android:onClick="addOffer"/>
 
             <TextView
                 android:id="@+id/appName"

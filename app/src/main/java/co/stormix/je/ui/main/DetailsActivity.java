@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -46,8 +47,15 @@ public class DetailsActivity extends AppCompatActivity {
     mViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
     // Get Offer by ID
-    assert offerId != null;
     Log.d("DetailActivity", offerId);
+    offer = mViewModel.getRepository().findById(offerId);
+
+    if(offer == null){
+      int duration = Toast.LENGTH_SHORT;
+      Toast toast = Toast.makeText(this, "Couldn't find offer.", duration);
+      toast.show();
+      return;
+    }
 
     // Set text views
     pageTitle = (TextView) findViewById(R.id.detailsTitle);
@@ -61,9 +69,8 @@ public class DetailsActivity extends AppCompatActivity {
     imageView = (ImageView) findViewById(R.id.imageView2);
 
     //
-    offer = mViewModel.getRepository().findById(offerId);
 
-    Locale locale = new Locale("fr", "FR"); 
+    Locale locale = new Locale("fr", "FR");
     DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, locale);
 
     pageTitle.setText(offer.getCompany().getDisplayName());
@@ -74,21 +81,22 @@ public class DetailsActivity extends AppCompatActivity {
     createdAt.setText(dateFormat.format(offer.getCreatedAt()));
     expiresAt.setText(dateFormat.format(offer.getExpiresAt()));
     description.setText(offer.getDescription());
+
     Picasso.get()
         .load(offer.getLogo())
         .resize(250, 250)
         .centerCrop()
         .into(imageView);
-
-    Context context = getApplicationContext();
-    int duration = Toast.LENGTH_SHORT;
-    Toast toast = Toast.makeText(context, "Couldn't find offer.", duration);
-    toast.show();
-  }
+    }
 
   public void goToHomePage(){
-    Intent intent = new Intent(this, MainActivity.class);
-    startActivity(intent);
+    super.onBackPressed();
+  }
+
+  public void notImplemented(View v){
+    int duration = Toast.LENGTH_SHORT;
+    Toast toast = Toast.makeText(this, "Not implemented", duration);
+    toast.show();
   }
 
   @Override
@@ -104,5 +112,13 @@ public class DetailsActivity extends AppCompatActivity {
     Toast toast = Toast.makeText(context, "TODO", duration);
     toast.show();
     return true;
+  }
+  public void composeEmail(String address, String subject) {
+    Intent intent = new Intent(Intent.ACTION_SENDTO);
+    intent.setData(Uri.parse("mailto:"+address)); // only email apps should handle this
+    startActivity(Intent.createChooser(intent, "Contact client"));
+  }
+  public void contact(View v){
+    composeEmail(offer.getClient().getEmail(), "JE: contact email");
   }
 }

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -37,6 +38,16 @@ public class OfferRecyclerViewAdapter extends RecyclerView.Adapter<OfferRecycler
   @Override
   public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item, parent, false);
+    ImageView dots = (ImageView) view.findViewById(R.id.options);
+    dots.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(v.getContext(), "Not implemented", duration);
+        toast.show();
+      }
+    });
+
     return new ViewHolder(view);
   }
 
@@ -53,6 +64,7 @@ public class OfferRecyclerViewAdapter extends RecyclerView.Adapter<OfferRecycler
         context.startActivity(intent);
       }
     });
+
 
     holder.mItem = offers.get(position);
     holder.mClientName.setText(currentOffer.getClient().getDisplayName());

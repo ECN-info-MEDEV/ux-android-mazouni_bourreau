@@ -10,10 +10,16 @@ public class User {
 
     private String userId;
     private String displayName;
+    private String email;
 
-    public User(String userId, String displayName) {
+    public User(String userId, String displayName, String email) {
         this.userId = userId;
         this.displayName = displayName;
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public String getUserId() {
@@ -26,6 +32,6 @@ public class User {
 
     public static User createFakeUser(String id){
         Lorem lorem = LoremIpsum.getInstance();
-        return new User(id, lorem.getName());
+        return new User(id, lorem.getName(), lorem.getEmail());
     }
 }
