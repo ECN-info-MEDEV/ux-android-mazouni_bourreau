@@ -1,5 +1,8 @@
 package co.stormix.je.data.model;
 
+import com.thedeanda.lorem.Lorem;
+import com.thedeanda.lorem.LoremIpsum;
+
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository
  */
@@ -22,7 +25,7 @@ public class User {
     }
 
     public static User createFakeUser(String id){
-        User user = new User(id, "Anas Mazouni");
-        return user;
+        Lorem lorem = LoremIpsum.getInstance();
+        return new User(id, lorem.getName());
     }
 }

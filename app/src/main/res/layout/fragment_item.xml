@@ -1,103 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_marginBottom="8dp"
+
+    android:background="@drawable/offer_card"
+    android:orientation="vertical"
+    android:paddingTop="6dp"
+    android:paddingBottom="6dp">
+
+    <ImageView
+        android:id="@+id/fragmentLogo"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_marginLeft="8dp"
+        android:contentDescription="Logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
 
     <TextView
         android:id="@+id/created_at"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="-10dp"
         android:text="5 min ago"
-        android:textAlignment="textEnd" />
+        android:textAlignment="textEnd"
+        android:textColor="#737373"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:orientation="vertical"
+        android:paddingStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fragmentLogo"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlSymmetry">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="58dp"
-            android:layout_height="76dp"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/client_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/text_margin"
-                    android:text="Anas Mazouni"
-                    android:textAppearance="?attr/textAppearanceListItem"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/company_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/text_margin"
-                    android:text="Apple Inc."
-                    android:textAppearance="?attr/textAppearanceListItem"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
+            android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/description"
+                android:id="@+id/client_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/text_margin"
-                android:text="Haha description "
-                android:textAppearance="?attr/textAppearanceListItem" />
+                android:text="@string/client"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="#000"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/dot"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/client_name"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_dot"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/company_name"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/dot"
+                android:text="@string/company"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="#A7A7A7"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/dot"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/duration"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="6 Months"
-                    android:textAlignment="center"
-                    android:textAppearance="?attr/textAppearanceListItem"
-                    android:textSize="10sp" />
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:paddingRight="4dp"
+            android:paddingBottom="4dp"
+            android:text="@string/description"
+            android:textAlignment="viewStart"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="#737373"
+            android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/company_type"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="PME"
-                    android:textAlignment="center"
-                    android:textSize="10sp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/company_site"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="apple.com"
-                    android:textAlignment="center"
-                    android:textSize="10sp" />
+            <TextView
+                android:id="@+id/duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/duration"
+                android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="#737373"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/dot2"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/duration"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_dot"
+                tools:ignore="ContentDescription" />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/company_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/company_type"
+                android:textAlignment="center"
+                android:textColor="#737373"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/dot2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/dot3"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/company_type"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_dot"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/company_site"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/company_site"
+                android:textAlignment="center"
+                android:textColor="#090909"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/dot3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

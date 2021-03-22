@@ -14,22 +14,248 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <com.google.android.material.appbar.AppBarLayout
+
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Header"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/layout_mx"
+            android:layout_marginRight="@dimen/layout_mx"
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal"
+            android:paddingTop="24dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/appName"
+            app:layout_constraintTop_toTopOf="@+id/appName"
+            tools:showIn="@layout/activity_main">
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/topAppBar"
+
+            <ImageView
+                android:id="@+id/addIcon"
+                android:layout_width="17dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_conversion_absoluteHeight="24dp"
+                tools:layout_conversion_absoluteWidth="24dp"
+                app:srcCompat="@drawable/ic_clear_black_24dp"
+                android:onClick="goToHomePage"/>
+
+            <TextView
+                android:id="@+id/detailsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ao"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_conversion_absoluteHeight="41dp"
+                tools:layout_conversion_absoluteWidth="323dp" />
+
+            <ImageView
+                android:id="@+id/filterIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/filter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_download_black_24dp"
+                tools:layout_conversion_absoluteHeight="32dp"
+                tools:layout_conversion_absoluteWidth="32dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="578dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:title="AO"
-                app:menu="@menu/top_bar_menu"
-                app:navigationIcon="@drawable/ic_clear_black_24dp"
-                style="@style/Widget.MaterialComponents.Toolbar.Surface"
-                />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/layout_mx"
+                android:layout_marginRight="@dimen/layout_mx"
+                android:orientation="vertical">
 
-        </com.google.android.material.appbar.AppBarLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
 
+                    <LinearLayout
+                        android:id="@+id/companyInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_toStartOf="@+id/imageView2"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/company"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/company"
+                            android:textColor="@color/material_on_background_emphasis_high_type"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/companyName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Company Name" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/companyType"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Company Type"
+                                android:textColor="?android:attr/textColorPrimaryNoDisable" />
+
+                            <TextView
+                                android:id="@+id/companyWebsite"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_toEndOf="@id/companyType"
+                                android:text="google.com"
+                                android:textColor="@color/colorPrimary" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="0dp"
+                        android:visibility="visible"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/client"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/client"
+                        android:textColor="@color/material_on_background_emphasis_high_type"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/clientName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Client Name" />
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/created"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/created"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/material_on_background_emphasis_high_type"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/createdAt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/default_date" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/deadline"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:scaleType="fitStart"
+                            android:text="@string/deadline"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/material_on_background_emphasis_high_type"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/expiresAt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/default_date" />
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/project"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/project"
+                        android:textColor="@color/material_on_background_emphasis_high_type"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/projectDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Project description" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
 
 
     </LinearLayout>

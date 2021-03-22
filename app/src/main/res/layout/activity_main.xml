@@ -11,38 +11,96 @@
 
 
     <LinearLayout
+        android:id="@+id/Page"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <com.google.android.material.appbar.AppBarLayout
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Header"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/layout_mx"
+            android:layout_marginRight="@dimen/layout_mx"
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal"
+            android:paddingTop="24dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/appName"
+            app:layout_constraintTop_toTopOf="@+id/appName"
+            tools:showIn="@layout/activity_main">
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/topAppBar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:title="AO"
-                app:menu="@menu/top_bar_menu"
-                app:navigationIcon="@drawable/ic_add_black_24dp"
-                style="@style/Widget.MaterialComponents.Toolbar.Surface"
-                />
 
-        </com.google.android.material.appbar.AppBarLayout>
+            <ImageView
+                android:id="@+id/addIcon"
+                android:layout_width="17dp"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_add"
+                tools:layout_conversion_absoluteHeight="24dp"
+                tools:layout_conversion_absoluteWidth="24dp" />
+
+            <TextView
+                android:id="@+id/appName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ao"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_conversion_absoluteHeight="41dp"
+                tools:layout_conversion_absoluteWidth="323dp" />
+
+            <ImageView
+                android:id="@+id/filterIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/filter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_filter"
+                tools:layout_conversion_absoluteHeight="32dp"
+                tools:layout_conversion_absoluteWidth="32dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <EditText
             android:id="@+id/search_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/layout_mx"
+            android:layout_marginRight="@dimen/layout_mx"
             android:layout_marginBottom="16dp"
+            android:autofillHints=""
+            android:background="@drawable/custom_input"
             android:ems="10"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:inputType="text"
-            android:text="Search" />
+            android:paddingLeft="8dp"
+            android:paddingTop="12dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="12dp"
+            android:text="@string/search"
+            tools:ignore="LabelFor" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/offerList"
             android:name="co.stormix.je.ui.components.OfferFragmentList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/layout_mx"
+            android:layout_marginRight="@dimen/layout_mx">
 
         </androidx.fragment.app.FragmentContainerView>
     </LinearLayout>

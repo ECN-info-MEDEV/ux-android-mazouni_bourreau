@@ -14,4 +14,19 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="filter">Filter</string>
+    <string name="search">Search</string>
+    <string name="ao">AO</string>
+    <string name="add">Déposer un AO</string>
+    <string name="close">Close</string>
+    <string name="export">Export</string>
+    <string name="company">Entreprise</string>
+    <string name="client">Client</string>
+    <string name="created">Date de la demande</string>
+    <string name="deadline">Date limite</string>
+    <string name="project">Fiche Projet</string>
+    <string name="default_date">00-00-0000</string>
+    <string name="description">Description</string>
+    <string name="duration">x months</string>
+    <string name="company_type">PME</string>
+    <string name="company_site">apple.com</string>
 </resources>

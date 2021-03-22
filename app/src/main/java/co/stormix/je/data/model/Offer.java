@@ -1,103 +1,119 @@
 package co.stormix.je.data.model;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.concurrent.RecursiveTask;
+import com.thedeanda.lorem.Lorem;
+import com.thedeanda.lorem.LoremIpsum;
 
 import org.ocpsoft.prettytime.PrettyTime;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Offer {
-   private User client;
-   private Company company;
-   private String description;
-   private String logo;
-   private Date createdAt;
-   private Date expiresAt;
-    private String id;
-    // Client, Company, createdAt, expiresAt, description, logo
-    public Offer(String id, User client, Company company, String description, String logo, Date createdAt, Date expiresAt) {
-      this.id = id;
-      this.client = client;
-      this.company = company;
-      this.description = description;
-      this.logo = logo;
-      this.createdAt = createdAt;
-      this.expiresAt = expiresAt;
+  private User client;
+  private Company company;
+  private String description;
+  private String logo;
+  private Date createdAt;
+  private Date expiresAt;
+  private String id;
+
+  // Client, Company, createdAt, expiresAt, description, logo
+  public Offer(String id, User client, Company company, String description, String logo, Date createdAt, Date expiresAt) {
+    this.id = id;
+    this.client = client;
+    this.company = company;
+    this.description = description;
+    this.logo = logo;
+    this.createdAt = createdAt;
+    this.expiresAt = expiresAt;
+  }
+
+  public static Offer createFakeOffer(String id) {
+    Lorem lorem = LoremIpsum.getInstance();
+    return new Offer(
+        id,
+        User.createFakeUser(id),
+        Company.createFakeCompany(id),
+        lorem.getParagraphs(2, 4),
+        "https://cdn2.iconfinder.com/data/icons/apple-tv-1/512/apple_logo-512.png",
+        new Date(),
+        new Date()
+    );
+  }
+
+  public static ArrayList<Offer> createFakeOfferList(int count) {
+    ArrayList<Offer> offers = new ArrayList<>();
+
+    for (int i = 0; i < count; i++) {
+      offers.add(Offer.createFakeOffer(String.valueOf(i)));
     }
 
-    public User getClient() {
-        return client;
-    }
+    return offers;
+  }
 
-    public void setClient(User client) {
-        this.client = client;
-    }
+  public User getClient() {
+    return client;
+  }
 
-    public Company getCompany() {
-        return company;
-    }
+  public void setClient(User client) {
+    this.client = client;
+  }
 
-    public void setCompany(Company company) {
-        this.company = company;
-    }
+  public Company getCompany() {
+    return company;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public void setCompany(Company company) {
+    this.company = company;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public String getHumanCreatedAt(){
-        PrettyTime p = new PrettyTime();
-        return p.format(this.createdAt);
-    }
-    public String getDuration(){
-        // TODO
-        return "6 months";
-    }
-    public String getLogo() {
-        return logo;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public void setLogo(String logo) {
-        this.logo = logo;
-    }
+  public String getHumanCreatedAt() {
+    PrettyTime p = new PrettyTime();
+    return p.format(this.createdAt);
+  }
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
+  public String getDuration() {
+    // TODO
+    return "6 months";
+  }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
+  public String getLogo() {
+    return logo;
+  }
 
-    public Date getExpiresAt() {
-        return expiresAt;
-    }
+  public void setLogo(String logo) {
+    this.logo = logo;
+  }
 
-    public void setExpiresAt(Date expiresAt) {
-        this.expiresAt = expiresAt;
-    }
+  public Date getCreatedAt() {
+    return createdAt;
+  }
 
-    public static Offer createFakeOffer(String id){
-        Offer offer = new Offer(id, User.createFakeUser(id), Company.createFakeCompany(id), "Haha description go brrr", "https://cdn2.iconfinder.com/data/icons/apple-tv-1/512/apple_logo-512.png", new Date(), new Date());
-        return offer;
-    }
+  public void setCreatedAt(Date createdAt) {
+    this.createdAt = createdAt;
+  }
 
-    public static ArrayList<Offer> createFakeOfferList(int count){
-        ArrayList<Offer> offers = new ArrayList<>();
+  public Date getExpiresAt() {
+    return expiresAt;
+  }
 
-        for (int i = 0; i < count; i++){
-            offers.add(Offer.createFakeOffer(String.valueOf(i)));
-        }
+  public void setExpiresAt(Date expiresAt) {
+    this.expiresAt = expiresAt;
+  }
 
-        return offers;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public String getId() {
-    return  id;
-    }
+  public String getExcerpt() {
+    return this.description.substring(0, 80);
+  }
 }
