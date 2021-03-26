@@ -27,6 +27,11 @@ public class Company {
         return site;
     }
 
+    /***
+     * Generates a dummy company
+     * @param id Company ID
+     * @return a company instance with random info
+     */
     public static Company createFakeCompany(String id){
         return new Company(id, "Apple Inc. " + id, "apple"+id+".com", "PME");
     }

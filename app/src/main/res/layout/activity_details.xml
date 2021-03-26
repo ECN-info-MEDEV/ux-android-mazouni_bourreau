@@ -105,7 +105,7 @@
                         android:id="@+id/clientName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Client Name" />
+                        android:text="@string/client_name" />
                 </LinearLayout>
 
                 <RelativeLayout
@@ -136,7 +136,7 @@
                             android:id="@+id/companyName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Company Name" />
+                            android:text="@string/company_name" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -146,7 +146,7 @@
                                 android:id="@+id/companyType"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Company Type"
+                                android:text="@string/company_type_2"
                                 android:textColor="?android:attr/textColorPrimaryNoDisable" />
 
                             <TextView
@@ -155,7 +155,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16dp"
                                 android:layout_toEndOf="@id/companyType"
-                                android:text="google.com"
+                                android:text="@string/company_site_url"
                                 android:textColor="@color/colorPrimary" />
                         </RelativeLayout>
 

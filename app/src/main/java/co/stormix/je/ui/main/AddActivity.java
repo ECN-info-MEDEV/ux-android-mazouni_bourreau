@@ -38,8 +38,10 @@ public class AddActivity extends AppCompatActivity {
   Calendar myCalendar;
   DatePickerDialog.OnDateSetListener date;
   EditText dateInput;
+
   //Image request code
   private int PICK_IMAGE_REQUEST = 1;
+
   //Bitmap to get image from gallery
   private Bitmap bitmap;
 
@@ -79,6 +81,9 @@ public class AddActivity extends AppCompatActivity {
     });
   }
 
+  /**
+   * Updates the date input label
+   */
   private void updateLabel() {
     String myFormat = "dd-MM-YYYY"; //In which you need put here
     SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
@@ -131,7 +136,6 @@ public class AddActivity extends AppCompatActivity {
       //Creating a multi part request
       new MultipartUploadRequest(this, uploadId, "todo")
           .addFileToUpload(path, "image") //Adding file
-          .addParameter("name", "Image name") //Adding text parameter to the request
           .setNotificationConfig(new UploadNotificationConfig())
           .setMaxRetries(2)
           .startUpload(); //Starting the upload
@@ -142,7 +146,9 @@ public class AddActivity extends AppCompatActivity {
   }
 
 
-  //method to show file chooser
+  /**
+   * method to show file chooser
+   */
   private void showFileChooser() {
     Intent intent = new Intent();
     intent.setType("image/*");
@@ -150,7 +156,9 @@ public class AddActivity extends AppCompatActivity {
     startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
   }
 
-  //handling the image chooser activity result
+  /**
+   * handling the image chooser activity result
+   */
   @Override
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
@@ -193,12 +201,18 @@ public class AddActivity extends AppCompatActivity {
     showFileChooser();
   }
 
+  /**
+   * Dummy place holder function
+   */
   public void notImplemented(View v) {
     int duration = Toast.LENGTH_SHORT;
     Toast toast = Toast.makeText(this, "Not implemented", duration);
     toast.show();
   }
 
+  /**
+   * Go back to main activity
+   */
   public void goToHomePage() {
     super.onBackPressed();
   }

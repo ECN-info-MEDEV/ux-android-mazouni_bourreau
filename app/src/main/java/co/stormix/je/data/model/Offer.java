@@ -1,16 +1,8 @@
 package co.stormix.je.data.model;
 
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-
 import com.thedeanda.lorem.Lorem;
 import com.thedeanda.lorem.LoremIpsum;
-
 import org.ocpsoft.prettytime.PrettyTime;
-
-import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -36,7 +28,11 @@ public class Offer {
     this.expiresAt = expiresAt;
   }
 
-  @RequiresApi(api = Build.VERSION_CODES.O)
+  /***
+   * Generates a random offer
+   * @param id Offer ID
+   * @return an offer instance with random info
+   */
   public static Offer createFakeOffer(String id) {
     Lorem lorem = LoremIpsum.getInstance();
     long aDay = TimeUnit.DAYS.toMillis(1);
@@ -53,6 +49,11 @@ public class Offer {
     );
   }
 
+  /**
+   * Same as above, but a list of offers
+   * @param count Number of fake offers
+   * @return List of offers
+   */
   public static ArrayList<Offer> createFakeOfferList(int count) {
     ArrayList<Offer> offers = new ArrayList<>();
 
@@ -125,6 +126,9 @@ public class Offer {
     return id;
   }
 
+  /**
+   * Returns a short offer description
+   */
   public String getExcerpt() {
     return this.description.substring(0, 80);
   }

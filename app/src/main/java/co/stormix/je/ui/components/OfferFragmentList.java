@@ -44,13 +44,13 @@ public class OfferFragmentList extends Fragment {
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.fragment_item_list, container, false);
+    View view = inflater.inflate(R.layout.offer_card_list, container, false);
 
     // Set the adapter
     if (view instanceof RecyclerView) {
       Context context = view.getContext();
       RecyclerView recyclerView = (RecyclerView) view;
-      adapter = new OfferRecyclerViewAdapter(R.layout.fragment_item_list);
+      adapter = new OfferRecyclerViewAdapter(R.layout.offer_card_list);
       recyclerView.setLayoutManager(new LinearLayoutManager(context));
       recyclerView.setAdapter(adapter);
     }

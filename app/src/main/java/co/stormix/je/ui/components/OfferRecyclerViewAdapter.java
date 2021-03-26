@@ -37,7 +37,7 @@ public class OfferRecyclerViewAdapter extends RecyclerView.Adapter<OfferRecycler
   @NonNull
   @Override
   public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_item, parent, false);
+    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.offer_card, parent, false);
     ImageView dots = (ImageView) view.findViewById(R.id.options);
     dots.setOnClickListener(new View.OnClickListener() {
       @Override

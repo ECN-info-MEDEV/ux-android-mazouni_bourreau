@@ -30,6 +30,11 @@ public class User {
         return displayName;
     }
 
+    /**
+     * Generates a random User
+     * @param id User ID
+     * @return User with random info
+     */
     public static User createFakeUser(String id){
         Lorem lorem = LoremIpsum.getInstance();
         return new User(id, lorem.getName(), lorem.getEmail());

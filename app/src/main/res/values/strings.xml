@@ -29,4 +29,15 @@
     <string name="duration">x mois</string>
     <string name="company_type">PME</string>
     <string name="company_site">apple.com</string>
+    <string name="project_description">Project Description</string>
+    <string name="submit">Déposer</string>
+    <string name="cancel">Annuler</string>
+    <string name="company_name">Company Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="add_offer">Depot d’AO</string>
+    <string name="client_name">Client Name</string>
+    <string name="company_type_2">Company Type</string>
+    <string name="company_site_url">google.com</string>
 </resources>

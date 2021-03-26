@@ -20,22 +20,32 @@ import co.stormix.je.data.model.Offer;
 import co.stormix.je.ui.components.OfferRecyclerViewAdapter;
 
 public class MainActivity extends AppCompatActivity {
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
 
-  }
+    }
+
+  /**
+   * Go back to main activity
+   */
     public void goToHomePage() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
+  /**
+   * Opens the add offer page
+   */
     public void addOffer(View view) {
       Intent intent = new Intent(this, AddActivity.class);
       startActivity(intent);
     }
 
+  /**
+   * Bottom navigation handler
+   */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
